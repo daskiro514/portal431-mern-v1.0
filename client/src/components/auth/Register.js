@@ -11,28 +11,20 @@ const Register = ({ register }) => {
     firstName: '',
     lastName: '',
     email: '',
-    dateOfBirth: '',
-    usBusinessTaxID: '',
-    usBusineesAddress: '',
-    emailForStore: '',
     password: '',
     phoneNumber: '',
-    w9: '',
-    einVerificationLetter: '',
-    articlesOfOrganization: '',
-    bankCard: '',
-    usDriversLicense: '',
-    creditDebitCardFront: '',
-    creditDebitCardBack: '',
+    dateOfBirth: '',
+    nameOfLLC: '',
+    einOfLLC: '',
+    addressOfLLC: '',
+    nameOfStore: '',
     bankAccount: '',
-    routing: '',
-    dunsNumber: '',
-    website: '',
-    amazonSellerName: '',
-    amazonStoreUrl: ''
+    bankRouting: '',
+    emailOfFacebook: '',
+    passwordOfFacebook: '',
   })
 
-  const { firstName, lastName, email, dateOfBirth, usBusinessTaxID, usBusineesAddress, emailForStore, password, phoneNumber, w9, einVerificationLetter, articlesOfOrganization, bankCard, usDriversLicense, bankAccount, routing, creditDebitCardFront, creditDebitCardBack, dunsNumber, website, amazonSellerName, amazonStoreUrl } = formData
+  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook } = formData
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -40,7 +32,8 @@ const Register = ({ register }) => {
 
   const onSubmit = e => {
     e.preventDefault()
-    register(formData, history)
+    setIsUploading(true)
+    addNewClient(formData, history)
   }
 
   return (
@@ -96,7 +89,7 @@ const Register = ({ register }) => {
                 <div className='row'>
                   <div className='col-md-6'>
                     <div className='form-group'>
-                      <label>First Name *</label>
+                      <label>First Name</label>
                       <input
                         type='text'
                         className='form-control'
@@ -107,7 +100,7 @@ const Register = ({ register }) => {
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Last Name *</label>
+                      <label>Last Name</label>
                       <input
                         type='text'
                         className='form-control'
@@ -118,9 +111,9 @@ const Register = ({ register }) => {
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Business Email *</label>
+                      <label>Email Address</label>
                       <input
-                        type='email'
+                        type='text'
                         className='form-control'
                         name='email'
                         value={email}
@@ -129,64 +122,18 @@ const Register = ({ register }) => {
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Date of Birth *</label>
-                      <input
-                        type='date'
-                        className='form-control'
-                        name='dateOfBirth'
-                        value={dateOfBirth}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>U.S Business Tax ID / EIN / TIN *</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='usBusinessTaxID'
-                        value={usBusinessTaxID}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>U.S Business Address *</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='usBusineesAddress'
-                        value={usBusineesAddress}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>Email Address For Store (Preferably Business Email) *</label>
-                      <input
-                        type='email'
-                        className='form-control'
-                        name='emailForStore'
-                        value={emailForStore}
-                        minLength='6'
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>Password For Store (Preferably Business Email) *</label>
+                      <label>Password For This Website</label>
                       <input
                         type='password'
                         className='form-control'
                         name='password'
                         value={password}
-                        minLength='6'
                         onChange={onChange}
                         required
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Phone Number *</label>
+                      <label>Phone Number</label>
                       <input
                         type='text'
                         className='form-control'
@@ -197,64 +144,62 @@ const Register = ({ register }) => {
                       />
                     </div>
                     <div className='form-group'>
-                      <label>W8 or W9 (Google Drive Link)</label>
+                      <label>Date of Birth</label>
                       <input
-                        type='text'
+                        type='date'
                         className='form-control'
-                        name='w9'
-                        value={w9}
+                        name='dateOfBirth'
+                        value={dateOfBirth}
                         onChange={onChange}
                         required
                       />
                     </div>
                     <div className='form-group'>
-                      <label>EIN Verification letter from the Department of Treasury(Google Drive Link)</label>
+                      <label>Name of Your LLC to be used for the Facebook Shop</label>
                       <input
                         type='text'
                         className='form-control'
-                        name='einVerificationLetter'
-                        value={einVerificationLetter}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                  </div>
-                  <div className='col-md-6'>
-                    <div className='form-group'>
-                      <label>Articles Of Organization(Google Drive Link)</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='articlesOfOrganization'
-                        value={articlesOfOrganization}
+                        name='nameOfLLC'
+                        value={nameOfLLC}
                         onChange={onChange}
                         required
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Bank/Credit Card Statement(Google Drive Link)</label>
+                      <label>What is the EIN of this LLC?</label>
                       <input
                         type='text'
                         className='form-control'
-                        name='bankCard'
-                        value={bankCard}
+                        name='einOfLLC'
+                        value={einOfLLC}
                         onChange={onChange}
                         required
                       />
                     </div>
                     <div className='form-group'>
-                      <label>U.S Drivers License Front & Back(Google Drive Link)</label>
+                      <label>What is the addresss on file of this LLC?</label>
                       <input
                         type='text'
                         className='form-control'
-                        name='usDriversLicense'
-                        value={usDriversLicense}
+                        name='addressOfLLC'
+                        value={addressOfLLC}
                         onChange={onChange}
                         required
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Bank Account # *</label>
+                      <label>What would you like the name of your store to be? (If you'd like us to choose, write "You Choose")</label>
+                      <input
+                        type='text'
+                        className='form-control'
+                        name='nameOfStore'
+                        value={nameOfStore}
+                        onChange={onChange}
+                        required
+                      />
+                    </div>
+                    <div className='form-group'>
+                      <label>Bank Account Number for Sales Revenue</label>
                       <input
                         type='text'
                         className='form-control'
@@ -265,85 +210,43 @@ const Register = ({ register }) => {
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Routing # *</label>
+                      <label>Bank Routing Number for Sales Revenue</label>
                       <input
                         type='text'
                         className='form-control'
-                        name='routing'
-                        value={routing}
+                        name='bankRouting'
+                        value={bankRouting}
+                        onChange={onChange}
+                        required
+                      />
+                    </div>
+                  </div>
+                  <div className='col-md-6'>
+                    <div className='form-group'>
+                      <label>Facebook Login EMAIL. (If you created your Facebook with a phone number, please go into settings and find the email associated, please associate one with your Facebook and provide that email to us below)</label>
+                      <input
+                        type='text'
+                        className='form-control'
+                        name='emailOfFacebook'
+                        value={emailOfFacebook}
                         onChange={onChange}
                         required
                       />
                     </div>
                     <div className='form-group'>
-                      <label>Credit/Debit Card (Front) (Google Drive Link)</label>
+                      <label>Facebook login PASSWORD. (If any 2 factor authentication please disable prior)</label>
                       <input
                         type='text'
                         className='form-control'
-                        name='creditDebitCardFront'
-                        value={creditDebitCardFront}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>Credit/Debit Card (Back) (Google Drive Link)</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='creditDebitCardBack'
-                        value={creditDebitCardBack}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>DUNS Number</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='dunsNumber'
-                        value={dunsNumber}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>Website</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='website'
-                        value={website}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>Amazon Seller Name</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='amazonSellerName'
-                        value={amazonSellerName}
-                        onChange={onChange}
-                        required
-                      />
-                    </div>
-                    <div className='form-group'>
-                      <label>Amazon Store URL</label>
-                      <input
-                        type='text'
-                        className='form-control'
-                        name='amazonStoreUrl'
-                        value={amazonStoreUrl}
+                        name='passwordOfFacebook'
+                        value={passwordOfFacebook}
                         onChange={onChange}
                         required
                       />
                     </div>
                   </div>
                 </div>
-                <div className='form-group pt-2'>
+                <div className='form-group pt-3'>
                   <input
                     type='submit'
                     className='form-control'
