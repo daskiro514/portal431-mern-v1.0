@@ -64,6 +64,20 @@ const UserSchema = new mongoose.Schema({
   passwordOfFacebook: {
     type: String
   },
+  frontCardLink: {
+    type: String
+  },
+  frontCardLinkStatus: {
+    type: String,
+    default: 'Pending'
+  },
+  backCardLink: {
+    type: String
+  },
+  backCardLinkStatus: {
+    type: String,
+    default: 'Pending'
+  },
   // FOR MESSAGE
   toAdminMessages: {
     type: Number,

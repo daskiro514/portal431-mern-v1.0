@@ -56,17 +56,13 @@ const AdminClientDocuments = ({ client, updateClientDocumentStatus }) => {
                 <td style={{
                   maxWidth: '200px',
                   wordBreak: 'break-all'
-                }}><a href={item.path ? item.path : 'https://drive.google.com/file/d/1ajFpHPJBBoj2k3xDySpjYovUrSeipPrJ/view?usp=sharing'} target='_blank' rel='noreferrer'>{item.path ? item.path : 'https://drive.google.com/file/d/1ajFpHPJBBoj2k3xDySpjYovUrSeipPrJ/view?usp=sharing'}</a></td>
-                <td><span className={item.status === 'Pending' ? 'text-danger' : 'text-secondary'}>{item.status ? item.status : 'test'}</span></td>
+                }}><a href={item.path} target='_blank' rel='noreferrer'>{item.path}</a></td>
+                <td><span className={item.status === 'Pending' ? 'text-danger' : 'text-secondary'}>{item.status}</span></td>
                 <td>
                   <button onClick={() => {
-                    alert('This is test!')
-                    return
                     updateClientDocumentStatus(client._id, item.keyInDB, 'Approve')
                   }} className='badge badge-info mr-2'>Approve</button>
                   <button onClick={() => {
-                    alert('This is test!')
-                    return
                     updateClientDocumentStatus(client._id, item.keyInDB, 'Deny')
                   }} className='badge badge-pending'>Deny</button>
                 </td>

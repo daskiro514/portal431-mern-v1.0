@@ -24,9 +24,11 @@ const AddNewClient = ({ addNewClient }) => {
     bankRouting: '',
     emailOfFacebook: '',
     passwordOfFacebook: '',
+    frontCardLink: '',
+    backCardLink: ''
   })
 
-  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook } = formData
+  const { firstName, lastName, email, password, phoneNumber, dateOfBirth, nameOfLLC, einOfLLC, addressOfLLC, nameOfStore, bankAccount, bankRouting, emailOfFacebook, passwordOfFacebook, frontCardLink, backCardLink } = formData
 
   const onChange = e => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -203,6 +205,33 @@ const AddNewClient = ({ addNewClient }) => {
                     className='form-control'
                     name='passwordOfFacebook'
                     value={passwordOfFacebook}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+                <div className='form-group mt-3'>
+                  <b>Credit Card for Cost of Goods</b>
+                </div>
+                <div className='form-group'>
+                  <label>Picture of Front of the Card</label>
+                  <input 
+                    type='text'
+                    className='form-control'
+                    placeholder='Upload DropBox / Google Drive Link'
+                    name='frontCardLink'
+                    value={frontCardLink}
+                    onChange={onChange}
+                    required
+                  />
+                </div>
+                <div className='form-group'>
+                  <label>Picture of Back of the Card</label>
+                  <input 
+                    type='text'
+                    className='form-control'
+                    placeholder='Upload DropBox / Google Drive Link'
+                    name='backCardLink'
+                    value={backCardLink}
                     onChange={onChange}
                     required
                   />
