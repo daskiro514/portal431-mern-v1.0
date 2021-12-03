@@ -199,7 +199,7 @@ const AddNewClient = ({ addNewClient }) => {
                   />
                 </div>
                 <div className='form-group'>
-                  <label>Facebook login PASSWORD. (If any 2 factor authentication please disable prior)</label>
+                  <label>Facebook login PASSWORD</label>
                   <input
                     type='text'
                     className='form-control'
