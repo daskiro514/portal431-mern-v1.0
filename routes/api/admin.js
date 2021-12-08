@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const config = require('config')
 
 // For User Generate
 const bcrypt = require('bcryptjs')
@@ -14,6 +15,11 @@ const Course = require('../../models/Course')
 
 // FILE UPLOAD
 const fileUpload = require('../../utils/fileUpload')
+
+// Mailgun Info
+const mailgunApiKey = config.get('mailgun.mailgunApiKey')
+const mailgunDomain = config.get('mailgun.domain')
+var mailgun = require('mailgun-js')({ apiKey: mailgunApiKey, domain: mailgunDomain })
 
 router.get('/getAdminClients', async (req, res) => {
   const clientsFromDB = await User.find({ type: 'client' })
@@ -47,6 +53,17 @@ router.post('/addNewClient', async (req, res) => {
   newClient.type = 'client'
 
   await newClient.save()
+
+  var emailContentToAdmin = {
+    from: 'PORTAL <info@portal.431performance.com>',
+    to: 'stone@stoneross.com',
+    subject: 'There is a new customer registration.',
+    text: `Hi. ${newClient.firstName} ${newClient.lastName} applied as a customer. Please check https://portal.431performance.com/dashboard/clients`
+  }
+
+  mailgun.messages().send(emailContentToAdmin, function (error, body) {
+    console.log(body)
+  })
 
   res.json({
     success: true
