@@ -59,7 +59,7 @@ const ClientAccount = ({ client, update }) => {
       </div>
       <div className='d-flex d-flex-row justify-content-between align-items-center'>
         <span className={'text-white badge ' + (documenetsPendingCheck(client) === 'All Documents Approved' ? 'badge-info' : 'badge-pending')}><i className='fa fa-exclamation-triangle'></i> {documenetsPendingCheck(client)}</span>
-        <button type="button" className="btn btn-success" id='button' data-toggle="modal" data-target="#myModal">Update User</button>
+        <button type="button" className="btn btn-success" id='button' data-toggle="modal" data-target="#myModal" style={{ backgroundColor: '#0071BD' }}>Update User</button>
       </div>
       <div className='bg-white rounded-lg p-3 mt-3'>
         <div className='row'>
@@ -309,7 +309,7 @@ const ClientAccount = ({ client, update }) => {
                 <input
                   type='submit'
                   className='form-control'
-                  style={{ backgroundColor: '#A78BE2' }}
+                  style={{ backgroundColor: '#0071BD',color: 'white' }}
                   value='Submit'
                 />
               </div>

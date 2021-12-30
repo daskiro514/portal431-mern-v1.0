@@ -69,7 +69,7 @@ const AdminClient = ({ match, getClient, client, setClientCurrentPage, currentPa
           </div>
           <div className='d-flex d-flex-row justify-content-between align-items-center'>
             <span className={'text-white badge ' + (documenetsPendingCheck(client) === 'All Documents Approved' ? 'badge-info' : 'badge-pending')}><i className='fa fa-exclamation-triangle'></i> {documenetsPendingCheck(client)}</span>
-            <button type="button" className="btn btn-success" id='button' data-toggle="modal" data-target="#myModal">Update Client</button>
+            <button type="button" className="btn btn-success" id='button' data-toggle="modal" data-target="#myModal" style={{ backgroundColor: '#0071BD' }}>Update Client</button>
           </div>
           {currentPage === 'store' ? <AdminClientStore clientID={match.params.id} /> : null}
           {currentPage === 'document' ? <AdminClientDocuments /> : null}
@@ -266,14 +266,14 @@ const AdminClient = ({ match, getClient, client, setClientCurrentPage, currentPa
                 <input
                   type='submit'
                   className='form-control'
-                  style={{ backgroundColor: '#A78BE2' }}
+                  style={{ backgroundColor: '#0071BD', color: 'white' }}
                   value='Submit'
                 />
               </div>
             </form>
 
             <div className="modal-footer">
-              <button type="button" className="btn bg-keto-primary">Don't show it again.</button>
+              <button type="button" className="btn bg-keto-primary" style={{backgroundColor: '#0071BD'}}>Don't show it again.</button>
             </div>
           </div>
         </div>
