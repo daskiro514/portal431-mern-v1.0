@@ -314,10 +314,6 @@ const ClientAccount = ({ client, update }) => {
                 />
               </div>
             </form>
-
-            <div className="modal-footer">
-              <button type="button" className="btn bg-keto-primary">Don't show it again.</button>
-            </div>
           </div>
         </div>
       </div>

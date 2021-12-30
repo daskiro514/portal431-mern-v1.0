@@ -64,7 +64,6 @@ const AdminClient = ({ match, getClient, client, setClientCurrentPage, currentPa
             <span>
               <i onClick={() => setClientCurrentPage('store')} className={'fa fa-shopping-cart p-2 mr-1 ' + (currentPage === 'store' ? 'client-current-page' : '')}></i>
               <i onClick={() => setClientCurrentPage('document')} className={'fa fa-address-book-o p-2 mr-1 ' + (currentPage === 'document' ? 'client-current-page' : '')}></i>
-              <i onClick={() => setClientCurrentPage('setting')} className={'fa fa-gear p-2 ' + (currentPage === 'setting' ? 'client-current-page' : '')}></i>
             </span>
           </div>
           <div className='d-flex d-flex-row justify-content-between align-items-center'>
@@ -271,10 +270,6 @@ const AdminClient = ({ match, getClient, client, setClientCurrentPage, currentPa
                 />
               </div>
             </form>
-
-            <div className="modal-footer">
-              <button type="button" className="btn bg-keto-primary" style={{backgroundColor: '#0071BD'}}>Don't show it again.</button>
-            </div>
           </div>
         </div>
       </div>

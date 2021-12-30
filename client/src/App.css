@@ -189,7 +189,8 @@ h1, h2, h3, h4, h5, h6, p, span, tr, th, td, div, ul, li, input, label, textarea
 
 .admin-client .client-current-page {
   border-radius: 5px;
-  background-color: thistle;
+  background-color: #0071BD;
+  color: white;
 }
 
 .admin-client .badge {
