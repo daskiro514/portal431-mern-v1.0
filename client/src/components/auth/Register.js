@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import { useHistory } from 'react-router'
 import { register } from '../../actions/auth'
 import { Link } from 'react-router-dom'
+import Spinner from '../layout/Spinner'
+import logoImage from '../../img/common/logo.png'
 
 const Register = ({ register }) => {
   const history = useHistory()
