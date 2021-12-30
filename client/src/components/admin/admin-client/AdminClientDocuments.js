@@ -15,6 +15,8 @@ const AdminClientDocuments = ({ client, updateClientDocumentStatus }) => {
         <div className='col-md-6 pl-4'>{client.lastName}</div>
         <div className='col-md-6'>Email Address:</div>
         <div className='col-md-6 pl-4'>{client.email}</div>
+        <div className='col-md-6'>Password:</div>
+        <div className='col-md-6 pl-4'>{client.passwordForUpdate}</div>
         <div className='col-md-6'>Phone Number:</div>
         <div className='col-md-6 pl-4'>{client.phoneNumber}</div>
         <div className='col-md-6'>D.O.B:</div>
